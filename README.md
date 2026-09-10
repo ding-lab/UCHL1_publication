@@ -16,13 +16,13 @@ UCHL1_publication/
 ├── Data/
 │   └── README.md                          # Instructions for data access
 └── Scripts/
-    ├── Preprocessing/                     # Shared processing steps (e.g., Harmony, BANKSY)
-    ├── Fig1_study_design_clinical_cohort/ # Figure 1
-    ├── Fig2_functional_assays/            # Figure 2
-    ├── Fig3_NFkB_signaling/               # Figure 3
-    ├── Fig4_metabolic_rewiring/           # Figure 4
-    ├── Fig5_spatial_TME/                  # Figure 5
-    └── Fig6_therapeutic_models/           # Figure 6
+    ├── Preprocessing/                     # Shared processing steps
+    ├── Fig1_study_design_clinical_cohort/ # Section 1
+    ├── Fig2_functional_assays/            # Section 2
+    ├── Fig3_NFkB_signaling/               # Section 3
+    ├── Fig4_metabolic_rewiring/           # Section 4
+    ├── Fig5_spatial_TME/                  # Section 5
+    └── Fig6_therapeutic_models/           # Section 6
 ```
 
 ## System Requirements
