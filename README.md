@@ -1,27 +1,30 @@
 # Functional and spatial multimodal dissection reveals a UCHL1-driven malignant program in clear cell renal cell carcinoma
 
 ## Overview
+
 This repository contains the custom code, analytical pipelines, and data processing scripts used in **Li et al. (under review)** to investigate the UCHL1-driven malignant program in ccRCC. We integrate single-nucleus RNA/ATAC-seq, high-resolution spatial transcriptomics (Xenium, Xenium 5K), CODEX imaging, and deep ubiquitinomic profiling to characterize ccRCC heterogeneity. The scripts provided here reproduce the bioinformatic analyses, including consensus clustering, spatial neighborhood delineation, and multi-omic pathway integrations.
 
-## Repo structure 
+## Repo structure
+
 UCHL1_publication/
 ├── README.md
 ├── LICENSE
 ├── envs/
-│   ├── UCHL1_python_env.yml       # Conda environment for Python
-│   └── UCHL1_R_env.yml            # Conda environment for R
+│   ├── UCHL1_python_env.yml               # Conda environment for Python
+│   └── UCHL1_R_env.yml                    # Conda environment for R
 ├── Data/
-│   └── README.md                  # Instructions for data access
+│   └── README.md                          # Instructions for data access
 └── Scripts/
-    ├── Preprocessing/             # Shared processing steps (e.g., Harmony integration, BANKSY setup)
-    ├── Fig1_study_design_clinical_cohort/      # Figure 1
-    ├── Fig2_functional_assays/    # Figure 2
-    ├── Fig3_NFkB_signaling/       # Figure 3
-    ├── Fig4_metabolic_rewiring/   # Figure 4
-    ├── Fig5_spatial_TME/          # Figure 5
-    └── Fig6_therapeutic_models/   # Figure 6
+    ├── Preprocessing/                     # Shared processing steps (e.g., Harmony, BANKSY)
+    ├── Fig1_study_design_clinical_cohort/ # Figure 1
+    ├── Fig2_functional_assays/            # Figure 2
+    ├── Fig3_NFkB_signaling/               # Figure 3
+    ├── Fig4_metabolic_rewiring/           # Figure 4
+    ├── Fig5_spatial_TME/                  # Figure 5
+    └── Fig6_therapeutic_models/           # Figure 6
 
 ## System Requirements
+
 ### Hardware requirements
 The preprocessing and spatial integration scripts (e.g., Harmony integration, BANKSY spatial clustering) require a high-performance computing (HPC) cluster or a standard workstation with at least:
 * 64+ GB RAM
@@ -33,27 +36,27 @@ Standard downstream statistical analyses and plotting can be performed on a stan
 * **Languages**: R (v4.3.0+) and Python (v3.11.6+).
 
 ## Installation Guide
-We recommend using [Miniconda](https://docs.conda.io/en/latest/miniconda.html) to manage the environments.
+We recommend using [Anaconda](https://www.anaconda.com/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) to manage the environments.
 
 1. Clone this repository:
 ```bash
-git clone [https://github.com/ding-lab/UCHL1_publication.git](https://github.com/ding-lab/UCHL1_publication.git)
+git clone https://github.com/ding-lab/UCHL1_publication.git
 cd UCHL1_publication
 ```
 
-2. Create and activate the Python environment (install time: ~5 minutes)
+2. Create and activate the Python environment (install time: ~5 minutes):
 ```bash
 conda env create -f envs/UCHL1_python_env.yml
 conda activate UCHL1_python
 ```
 
-3. Create and activate the R environment (install time: ~10-15 minutes)
+3. Create and activate the R environment (install time: ~10-15 minutes):
 ```bash
 conda env create -f envs/UCHL1_R_env.yml
 conda activate UCHL1_R
 ```
 
-4. Packages not available via Conda, such as CellChat v1.6.1 and scider v1.7.3, must be installed manually via devtools::install_github() in R). The complete list can be found below
+4. Packages not available via Conda, such as CellChat v1.6.1 and scider v1.7.3, must be installed via devtools::install_github() in R. The complete list can be found below:
 ```bash
 R Packages:
 AnnotationDbi v1.68.0
@@ -166,9 +169,9 @@ The scripts and additional information for reproducing the analyses and figures 
 All data are available in the paper and its Supplementary Information. Source data are provided with this paper. WES, RNA-seq, snRNA-seq, snATAC-seq, Xenium, Xenium 5K, and CODEX imaging data are part of the HTAN dbGaP study accession phs002371.v1.p1 and can be accessed through the HTAN Data Coordinating Center (DCC) Portal (https://data.humantumoratlas.org/) under the HTAN WUSTL Atlas. CPTAC: CPTAC snRNA-seq data can be accessed through NIH GDC Data Portal using the CPTAC Case ID (https://portal.gdc.cancer.gov/cases/). GRCh38 references used for scRNA-seq and snRNA-seq (refdata-gex-GRCh38-2020-A) are freely available from the 10x Genomics website (https://support.10xgenomics.com). The reference GRCh38 genome (GRCh38.d1.vd1.fa.tar.gz) used for WES read alignment is available from GDC (https://gdc.cancer.gov/about-data/gdc-data-processing/gdc-reference-files). The MSigDB hallmark gene sets are available from the GSEA website (https://www.gsea-msigdb.org/gsea/msigdb/collections.jsp). Due to GitHub file size limits, all processed data objects (Seurat .rds, Scanpy .h5ad, and DIA-MS matrices) required to run these scripts will be hosted on Zenodo.
 
 ## Instructions for Use (Reproducibility)
-The `Scripts/` directory is organized by Figure to facilitate direct reproducibility of the manuscript's panels.
+The `Scripts` directory is organized by figure to facilitate direct reproducibility of the manuscript's panels.
 
-* **`Scripts/Preprocessing/`**: Scripts for initial QC, Scrublet doublet removal, and Harmony batch correction for snRNA-seq and snATAC-seq.
+* **`Scripts/Preprocessing/`**: Scripts for initial QC, Scrublet doublet removal, and Harmony batch correction for snRNA-seq and snATAC-seq, and preprocessing of spatial assays.
 * **`Scripts/Fig1_study_design_clinical_cohort/`**: Gaussian Mixture Modeling (GMM) for UCHL1-high classification and survival analyses.
 * **`Scripts/Fig2_functional_assays/`**: Processing scripts for *in vitro* functional assays, including cell line CCK-8 proliferation curves, CRISPR-KO variant confirmation, and multi-omic (proteomic, phosphoproteomic, and ubiquitomic) consensus clustering and differential expression.
 * **`Scripts/Fig3_NFkB_signaling/`**: Differential expression, ssGSEA scoring, and integration of ubiquitination data for IKKβ/NF-κB axis.
@@ -181,5 +184,7 @@ Each folder contains a standalone script (e.g., `Fig5.R`) that specifies the det
 ---
 
 **Manuscript**: Functional and spatial multimodal dissection reveals a UCHL1-driven malignant program in clear cell renal cell carcinoma
+
 **Status**: Under Review
+
 **Contact**: Yize Li at [yize.li@wustl.edu]
