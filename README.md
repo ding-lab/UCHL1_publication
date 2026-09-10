@@ -4,8 +4,9 @@
 
 This repository contains the custom code, analytical pipelines, and data processing scripts used in **Li et al. (under review)** to investigate the UCHL1-driven malignant program in ccRCC. We integrate single-nucleus RNA/ATAC-seq, high-resolution spatial transcriptomics (Xenium, Xenium 5K), CODEX imaging, and deep ubiquitinomic profiling to characterize ccRCC heterogeneity. The scripts provided here reproduce the bioinformatic analyses, including consensus clustering, spatial neighborhood delineation, and multi-omic pathway integrations.
 
-## Repo structure
+## Repository Structure
 
+```text
 UCHL1_publication/
 ├── README.md
 ├── LICENSE
@@ -22,16 +23,17 @@ UCHL1_publication/
     ├── Fig4_metabolic_rewiring/           # Figure 4
     ├── Fig5_spatial_TME/                  # Figure 5
     └── Fig6_therapeutic_models/           # Figure 6
+```
 
 ## System Requirements
 
-### Hardware requirements
+### Hardware Requirements
 The preprocessing and spatial integration scripts (e.g., Harmony integration, BANKSY spatial clustering) require a high-performance computing (HPC) cluster or a standard workstation with at least:
 * 64+ GB RAM
 * 8+ CPU cores
 Standard downstream statistical analyses and plotting can be performed on a standard laptop with 16 GB RAM.
 
-### Software requirements
+### Software Requirements
 * **OS**: Linux (Ubuntu 20.04/22.04 or CentOS 7) or macOS.
 * **Languages**: R (v4.3.0+) and Python (v3.11.6+).
 
